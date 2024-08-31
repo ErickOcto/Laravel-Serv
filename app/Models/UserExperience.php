@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class UserExperience extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    public function user_detail(){
+        return $this->belongsTo(UserDetail::class);
+    }
 }
