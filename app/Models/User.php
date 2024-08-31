@@ -68,18 +68,18 @@ class User extends Authenticatable
     // All of relationships are here
 
     public function user_detail(){
-        $this->hasOne(UserDetail::class, 'user_id');
+        return $this->hasOne(UserDetail::class, 'user_id');
     }
 
     public function service(){
-        $this->hasOne(Service::class, 'user_id');
+        return $this->hasMany(Service::class, 'user_id');
     }
 
     public function order_buyer(){
-        $this->hasMany(Order::class, 'buyer_id');
+        return $this->hasMany(Order::class, 'buyer_id');
     }
 
     public function order_freelancer(){
-        $this->hasMany(Order::class, 'freelancer_id');
+        return $this->hasMany(Order::class, 'freelancer_id');
     }
 }

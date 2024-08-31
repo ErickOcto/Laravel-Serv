@@ -13,7 +13,19 @@ class Order extends Model
         'id'
     ];
 
-    public function user(){
-        $this->belongsTo(User::class, 'id');
+    public function user_buyer(){
+        return $this->belongsTo(Order::class, 'buyer_id', 'id');
+    }
+
+    public function user_freelancer(){
+        return $this->belongsTo(Order::class, 'freelancer_id', 'id');
+    }
+
+    public function service(){
+        return $this->belongsTo(Service::class);
+    }
+
+    public function order_status(){
+        return $this->belongsTo(OrderStatus::class);
     }
 }
